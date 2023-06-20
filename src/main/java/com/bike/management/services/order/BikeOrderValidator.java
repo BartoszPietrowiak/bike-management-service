@@ -19,7 +19,7 @@ public class BikeOrderValidator {
 
         AtomicInteger bikesNotFound = new AtomicInteger();
 
-        bikeOrder.getBikeOrderLines().forEach(orderline -> {
+        bikeOrder.getBikeOrderLine().forEach(orderline -> {
             if(bikeRepository.findByUpc(orderline.getUpc()) == null){
                 bikesNotFound.incrementAndGet();
             }

@@ -13,7 +13,6 @@ import java.util.UUID;
 
 @Slf4j
 @RequiredArgsConstructor
-@Profile("local-discovery")
 @Service
 public class BikeInventoryServiceFeign implements BikeInventoryService {
 
@@ -32,7 +31,7 @@ public class BikeInventoryServiceFeign implements BikeInventoryService {
                 .mapToInt(BikeInventoryDto::getQuantity)
                 .sum();
 
-        log.debug("BeerId: " + bikeId + " On hand is: " + onHand);
+        log.debug("BikeId: " + bikeId + " On hand is: " + onHand);
 
         return onHand;
     }

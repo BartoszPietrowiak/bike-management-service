@@ -29,9 +29,9 @@ public class BuyingService {
 
         bikes.forEach(bike -> {
             Integer invQOH = bikeInventoryService.getOnhandInventory(bike.getId());
-            log.debug("Checking Inventory for: " + bike.getBikeName() + " / " + bike.getId());
-            log.debug("Min Onhand is: " + bike.getMinOnHand());
-            log.debug("Inventory is: " + invQOH);
+            log.info("Checking Inventory for: " + bike.getBikeName() + " / " + bike.getId());
+            log.info("Min Onhand is: " + bike.getMinOnHand());
+            log.info("Inventory is: " + invQOH);
 
             if (bike.getMinOnHand() >= invQOH) {
                 jmsTemplate.convertAndSend(JmsConfig.BUY_BIKE_REQUEST, new BuyBikeEvent(bikeMapper.bikeToBikeDto(bike)));

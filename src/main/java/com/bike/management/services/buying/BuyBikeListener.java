@@ -32,7 +32,7 @@ public class BuyBikeListener {
 
         NewInventoryEvent newInventoryEvent = new NewInventoryEvent(bikeDto);
 
-        log.debug("Brewed bike " + bike.getMinOnHand() + " : QOH: " + bikeDto.getQuantity());
+        log.info("Brewed bike " + bike.getMinOnHand() + " : QOH: " + bikeDto.getQuantity());
 
         jmsTemplate.convertAndSend(JmsConfig.NEW_INVENTORY_QUEUE, newInventoryEvent);
     }

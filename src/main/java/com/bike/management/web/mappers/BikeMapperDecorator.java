@@ -3,8 +3,6 @@ package com.bike.management.web.mappers;
 import com.bike.common.BikeDto;
 import com.bike.management.domain.Bike;
 import com.bike.management.services.inventory.BikeInventoryService;
-import org.mapstruct.DecoratedWith;
-import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BikeMapperDecorator implements BikeMapper {

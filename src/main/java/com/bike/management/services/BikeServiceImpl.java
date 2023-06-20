@@ -23,7 +23,6 @@ public class BikeServiceImpl implements BikeService {
     private final BikeRepository bikeRepository;
     private final BikeMapper bikeMapper;
 
-    @Cacheable(cacheNames = "bikeListCache", condition = "#showInventoryOnHand == false ")
     @Override
     public BikePagedList listBikes(String bikeName, BikeTypeEnum bikeType, PageRequest pageRequest, Boolean showInventoryOnHand) {
 
@@ -68,7 +67,6 @@ public class BikeServiceImpl implements BikeService {
         return bikePagedList;
     }
 
-    @Cacheable(cacheNames = "bikeCache", key = "#bikeId", condition = "#showInventoryOnHand == false ")
     @Override
     public BikeDto getById(UUID bikeId, Boolean showInventoryOnHand) {
         if (showInventoryOnHand) {
@@ -99,7 +97,6 @@ public class BikeServiceImpl implements BikeService {
         return bikeMapper.bikeToBikeDto(bikeRepository.save(bike));
     }
 
-    @Cacheable(cacheNames = "bikeUpcCache")
     @Override
     public BikeDto getByUpc(String upc) {
         return bikeMapper.bikeToBikeDto(bikeRepository.findByUpc(upc));
