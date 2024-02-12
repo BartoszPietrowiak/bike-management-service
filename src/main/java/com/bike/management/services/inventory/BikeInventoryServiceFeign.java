@@ -22,7 +22,7 @@ public class BikeInventoryServiceFeign implements BikeInventoryService {
 
     @Override
     public Integer getOnhandInventory(UUID bikeId) {
-        log.debug("Calling Inventory Service - BeerId: " + bikeId);
+        log.debug("Calling Inventory Service - BikeId: " + bikeId);
 
         ResponseEntity<List<BikeInventoryDto>> responseEntity = inventoryServiceFeignClient.getOnhandInventory(bikeId);
 
